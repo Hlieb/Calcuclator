@@ -9,7 +9,7 @@ public class CalculatorMultiplicationTest {
     Calculator calculator = new Calculator();
 
     @DataProvider
-    public Object[][] multiplicationTest() {
+    public Object[][] multiplicationData() {
         return new Object[][]{
                 {4.2, 0, 0},
                 {100, 200.1, 20010},
@@ -33,9 +33,9 @@ public class CalculatorMultiplicationTest {
         System.out.println("Test finished");
     }
 
-    @Test(dataProvider = "multiplicationTest", description = "In this test, we multiply the first and second numbers",
+    @Test(dataProvider = "multiplicationData", description = "In this test, we multiply the first and second numbers",
             retryAnalyzer = TestRetry.class, groups = {"Smoke"}, priority = 1, invocationCount = 5, threadPoolSize = 4)
-    public void testMultiplication(double firstNumber, double secondNumber, double expected) {
+    public void multiplicationTest(double firstNumber, double secondNumber, double expected) {
         Assert.assertEquals(calculator.multiplication(firstNumber, secondNumber), expected);
     }
 }

@@ -10,7 +10,7 @@ public class CalculatorSplitTest {
     Calculator calculator = new Calculator();
 
     @DataProvider
-    public Object[][] splitTest() {
+    public Object[][] splitData() {
         return new Object[][]{
                 {100, 200, 0.5},
                 {130, 130, 1},
@@ -33,9 +33,9 @@ public class CalculatorSplitTest {
         System.out.println("Test finished");
     }
 
-    @Test(dataProvider = "splitTest", description = "In this test, we split the first and second numbers",
+    @Test(dataProvider = "splitData", description = "In this test, we split the first and second numbers",
             retryAnalyzer = TestRetry.class, groups = {"Smoke"}, invocationCount = 5, threadPoolSize = 4)
-    public void testSplit(double firstNumber, double secondNumber, double expected) {
+    public void splitTest(double firstNumber, double secondNumber, double expected) {
         Assert.assertEquals(calculator.split(firstNumber, secondNumber), expected);
     }
 }

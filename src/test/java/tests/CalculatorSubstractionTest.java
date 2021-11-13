@@ -35,7 +35,7 @@ public class CalculatorSubstractionTest {
 
     @Test(dataProvider = "substractionData", description = "In this test we subtract the second number from the first",
             retryAnalyzer = TestRetry.class, groups = {"Smoke"}, priority = 1, invocationCount = 3, threadPoolSize = 4)
-    public void testSum(double firstNumber, double secondNumber, double expected) {
+    public void substractionTest(double firstNumber, double secondNumber, double expected) {
         Assert.assertEquals(calculator.subtraction(firstNumber, secondNumber), expected);
     }
 }

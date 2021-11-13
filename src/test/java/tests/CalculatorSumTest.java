@@ -11,7 +11,7 @@ public class CalculatorSumTest {
     Calculator calculator = new Calculator();
 
     @DataProvider
-    public Object[][] sumTest() {
+    public Object[][] sumData() {
         return new Object[][]{
                 {2, 3, 5},
                 {100, 200, 300},
@@ -36,9 +36,9 @@ public class CalculatorSumTest {
         System.out.println("Test finished");
     }
 
-    @Test(dataProvider = "sumTest", description = "In this test we add the first and second numbers",
+    @Test(dataProvider = "sumData", description = "In this test we add the first and second numbers",
             retryAnalyzer = TestRetry.class, groups = {"Smoke"}, priority = 1, invocationCount = 2, threadPoolSize = 4)
-    public void testSum(double firstNumber, double secondNumber, double expected) {
+    public void sumTest(double firstNumber, double secondNumber, double expected) {
         Assert.assertEquals(calculator.sum(firstNumber, secondNumber), expected);
     }
 }
